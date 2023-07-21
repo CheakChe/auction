@@ -12,15 +12,11 @@ import * as serviceWorker from './serviceWorker';
 import rootReducer, { RootState } from './reducers';
 import { setSlots } from './reducers/Slots/Slots';
 import ROUTES from './constants/routes.constants';
-import TwitchRedirect from './pages/redirects/TwitchRedirect/TwitchRedirect';
-import DARedirect from './pages/redirects/DARedirect/DARedirect';
 import { sortSlots } from './utils/common.utils';
-import ChatWheelPage from './components/ChatWheelPage/ChatWheelPage';
 import { theme } from './constants/theme.constants';
 import NewDomainRedirect from './components/NewDomainRedirect/NewDomainRedirect';
 import history from './constants/history';
 import SaveLoadService from './services/SaveLoadService';
-import AudioRoom from './components/AudioRoom/AudioRoom';
 import './assets/i18n';
 
 dayjs.locale('ru');
@@ -73,20 +69,6 @@ if (window.location.host === 'woodsauc-reneawal.netlify.app') {
     <Provider store={store}>
       <Router history={history}>
         <Switch>
-          <Route exact path={ROUTES.TWITCH_REDIRECT}>
-            <TwitchRedirect />
-          </Route>
-          <Route exact path={ROUTES.DA_REDIRECT}>
-            <DARedirect />
-          </Route>
-          <Route exact path={ROUTES.CHAT_WHEEL}>
-            <ChatWheelPage />
-          </Route>
-          <Route exact path={ROUTES.AUDIO_ROOM}>
-            <MuiThemeProvider theme={theme}>
-              <AudioRoom />
-            </MuiThemeProvider>
-          </Route>
           <Route path={ROUTES.HOME}>
             <App />
           </Route>

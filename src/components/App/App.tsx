@@ -25,7 +25,6 @@ import SettingsPage from '../SettingsPage/SettingsPage';
 import { loadUserData } from '../../reducers/AucSettings/AucSettings';
 import withLoading from '../../decorators/withLoading';
 import LoadingPage from '../LoadingPage/LoadingPage';
-import IntegrationPage from '../IntegrationPage/IntegrationPage';
 import { theme } from '../../constants/theme.constants';
 import AlertsContainer from '../AlertsContainer/AlertsContainer';
 import HistoryPage from '../../pages/history/HistoryPage/HistoryPage';
@@ -33,7 +32,6 @@ import WheelPage from '../../pages/wheel/WheelPage/WheelPage';
 import HelpPage from '../HelpPage/HelpPage';
 import Statistic from '../Statistic/Statistic';
 import StopwatchPage from '../StopwatchPage/StopwatchPage';
-import RequestsPage from '../RequestsPage/RequestsPage';
 import { RootState } from '../../reducers';
 import { connectToSocketIo } from '../../reducers/socketIo/socketIo';
 import { getCookie } from '../../utils/common.utils';
@@ -220,9 +218,6 @@ const App: React.FC = () => {
           </div>
           <AlertsContainer />
           <Switch>
-            <Route exact path={ROUTES.INTEGRATION}>
-              <IntegrationPage />
-            </Route>
             <Route exact path={ROUTES.SETTINGS}>
               <SettingsPage />
             </Route>
@@ -240,9 +235,6 @@ const App: React.FC = () => {
             </Route>
             <Route exact path={ROUTES.STOPWATCH}>
               <StopwatchPage />
-            </Route>
-            <Route exact path={ROUTES.REQUESTS}>
-              <RequestsPage />
             </Route>
           </Switch>
         </main>
