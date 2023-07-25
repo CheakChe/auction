@@ -256,12 +256,12 @@ const RandomWheel = <TWheelItem extends WheelItem>({
   }, [isRandomPace, paceConfig, spin, totalSize, useRandomOrg]);
 
   const handleSpinTimeChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
+    e.persist();
     if (Number(e.target.value) >= 1 && Number(e.target.value) <= 100) {
       setSpinTime(Number(e.target.value));
+    } else {
+      setSpinTime(1);
     }
-
-    setSpinTime(1);
-
   }, []);
 
   const handleDepthRestrictChange = useCallback((e: ChangeEvent<{}>, value: number | number[]) => {
