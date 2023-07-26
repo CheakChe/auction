@@ -7,10 +7,8 @@ import { useTranslation } from 'react-i18next';
 import { ReactComponent as TwitchSvg } from '../../../assets/icons/twitch.svg';
 import { ReactComponent as DASvg } from '../../../assets/icons/DAAlert.svg';
 import './IntegrationSubscription.scss';
-import TwitchLoginButton from '../../../components/IntegrationPage/TwitchLoginButton/TwitchLoginButton';
 import { sendCpSubscribedState, sendDaSubscribedState } from '../../../reducers/Subscription/Subscription';
 import { RootState } from '../../../reducers';
-import DALoginButton from '../../../components/IntegrationPage/DALoginButton/DALoginButton';
 
 const IntegrationSubscription: FC = () => {
   const dispatch = useDispatch();
@@ -64,7 +62,7 @@ const IntegrationSubscription: FC = () => {
             <Switch onChange={subscribeTwitch} disabled={twitchLoading} checked={isSubscribedTwitch} />
           </div>
         ) : (
-          <TwitchLoginButton />
+          ''
         )}
         {username && hasDAAuth ? (
           <div className="row">
@@ -75,7 +73,7 @@ const IntegrationSubscription: FC = () => {
             <Switch onChange={subscribeDA} disabled={loading} checked={isSubscribedDA} />
           </div>
         ) : (
-          <DALoginButton />
+          ''
         )}
       </AccordionDetails>
     </Accordion>

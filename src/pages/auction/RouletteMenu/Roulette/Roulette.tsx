@@ -8,7 +8,6 @@ import { WheelItem } from '../../../../models/wheel.model';
 import './Roulette.scss';
 import RandomWheel, { SettingElements } from '../../../../components/RandomWheel/RandomWheel';
 import { Purchase } from '../../../../reducers/Purchases/Purchases';
-import PurchaseComponent from '../../PurchaseComponent/PurchaseComponent';
 import { getRandomIntInclusive } from '../../../../utils/common.utils';
 import { RootState } from '../../../../reducers';
 
@@ -189,7 +188,6 @@ const Roulette: FC<RouletteProps> = ({ presets, onRoll, bid }) => {
           <div className="roulette-wheel-extra">
             <div>
               <Typography>{t('auc.casino.yourBid')}</Typography>
-              <PurchaseComponent {...bid} hideActions disabled />
             </div>
           </div>
         </RandomWheel>

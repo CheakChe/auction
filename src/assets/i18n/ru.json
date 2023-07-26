@@ -10,7 +10,7 @@
       "max": "макс",
       "left": "Осталось",
       "delete": "Удалить",
-      "currencySign": "₽"
+      "currencySign": "$"
     },
     "auc": {
       "addPosition": "Добавить лот",

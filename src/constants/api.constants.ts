@@ -20,10 +20,6 @@ const ENDPOINTS = {
   RANDOM: {
     INTEGER: '/api/random/integer',
   },
-  AUDIO_ROOM: {
-    USER: '/api/audioRoom/user',
-    PRESETS: '/api/audioRoom/presets',
-  },
 };
 
 export default ENDPOINTS;

@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react';
 import { useSelector } from 'react-redux';
 import SlotsColumn from './SlotsColumn/SlotsColumn';
-import ControlColumn from './ControlColumn/ControlColumn';
 import Notification from '../../components/Notification/Notification';
 import './AucPage.scss';
 import { RootState } from '../../reducers';
@@ -9,6 +8,7 @@ import PageContainer from '../../components/PageContainer/PageContainer';
 import { updatePercents } from '../../services/PercentsRefMap';
 import TrailersContainer from '../../components/TrailersContainer/TrailersContainer';
 import AucActions from './AucActions/AucActions';
+import Stopwatch from './Stopwatch/Stopwatch';
 
 const AucPage: React.FC = () => {
   const { background } = useSelector((root: RootState) => root.aucSettings.settings);
@@ -33,7 +33,7 @@ const AucPage: React.FC = () => {
       <div className="auc-container-column">
         <div className="auc-container-row">
           <SlotsColumn />
-          <ControlColumn />
+          <Stopwatch />
         </div>
         <AucActions />
       </div>

@@ -1,7 +1,6 @@
 import React, { FC, memo, useCallback, useEffect, useRef, useState } from 'react';
 import { useDispatch } from 'react-redux';
 import { Purchase, setDraggedRedemption } from '../../../reducers/Purchases/Purchases';
-import PurchaseComponent from '../PurchaseComponent/PurchaseComponent';
 import { draggedBid } from '../DragBidContext/DragBidContext';
 import { DragPosition } from '../../../models/common.model';
 
@@ -84,7 +83,6 @@ const DraggableRedemption: FC<Purchase> = (purchase) => {
   return (
     <>
       <div draggable onDragStart={handleDragStart} onDragEnd={handleDragEnd} ref={redemptionRef}>
-        <PurchaseComponent {...purchase} isDragging={isDragging} />
       </div>
     </>
   );
