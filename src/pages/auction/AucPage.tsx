@@ -16,7 +16,7 @@ const AucPage: React.FC = () => {
   const { slots, searchTerm } = useSelector((root: RootState) => root.slots);
 
   const backgroundStyles = {
-    backgroundImage: `url(${background})`,
+    backgroundImage: background ? `url(${background})` : '',
     backgroundPosition: 'center',
     backgroundSize: 'cover',
     backgroundRepeat: 'no-repeat',

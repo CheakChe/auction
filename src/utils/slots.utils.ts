@@ -42,7 +42,11 @@ export const getTotalSize = (slots: { amount?: number | null }[]): number =>
 
 export const getSlot = (slots: Slot[], slotId: string): Slot | undefined => slots.find(({ id }) => id === slotId);
 
-export const splitSlotsWitchMostSimilarValues = (items: WheelItem[]): [WheelItem[], WheelItem[]] => {
+// TODO export const splitSlotsWitchMostSimilarValues = (items: WheelItem[]): [WheelItem[], WheelItem[]] => {
+// Странная ситуация, с этим return hint выбивает при компиляции ошибку странную, пока что оставлю так.
+// auction_app  | ./src/utils/slots.utils.ts
+// auction_app  | Syntax error: Cannot read properties of undefined (reading 'map') (0:undefined)
+export const splitSlotsWitchMostSimilarValues = (items: WheelItem[]) => {
   const restSlots = [...items];
   const a = [restSlots.splice(0, 1)[0]];
   let aSize = Number(a[0]?.amount);

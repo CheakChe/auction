@@ -12,7 +12,7 @@ services:
       - ./:/var/www
       - ./docker/app/supervisord.conf:/etc/supervisord.conf
       - ./docker/app/supervisord:/var/lib/supervisord
-      - ./logs:/tmp
+      - ./logs:/logs
     networks:
       - auction
     ports:

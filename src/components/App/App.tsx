@@ -210,7 +210,11 @@ const App: React.FC = () => {
           onMouseEnter={showDrawer}
           onMouseLeave={hideDrawer}
         >
-          <List>{MENU_ITEMS.map(createMenuItem)}</List>
+          <List>
+            {MENU_ITEMS.map((item) => (
+              <React.Fragment key={item.title}>{createMenuItem(item)}</React.Fragment>
+            ))}
+          </List>
         </Drawer>
         <main className={classes.content}>
           <div hidden={!isHomePage}>
