@@ -113,7 +113,7 @@ const RandomWheel = <TWheelItem extends WheelItem>({
     setDepthRestrict(undefined);
     setWheelFormat(format);
 
-    if (format === WheelFormat.Dropout && !getCookie('seenDropoutProof')) {
+    if (format === WheelFormat.Dropout && !getCookie('seenDropoutProof2')) {
       setIsDropoutProofOpen(true);
     }
   }, []);
@@ -256,7 +256,12 @@ const RandomWheel = <TWheelItem extends WheelItem>({
   }, [isRandomPace, paceConfig, spin, totalSize, useRandomOrg]);
 
   const handleSpinTimeChange = useCallback((e: ChangeEvent<HTMLInputElement>) => {
-    setSpinTime(Number(e.target.value));
+    e.persist();
+    if (Number(e.target.value) >= 1 && Number(e.target.value) <= 100) {
+      setSpinTime(Number(e.target.value));
+    } else {
+      setSpinTime(1);
+    }
   }, []);
 
   const handleDepthRestrictChange = useCallback((e: ChangeEvent<{}>, value: number | number[]) => {
@@ -293,7 +298,7 @@ const RandomWheel = <TWheelItem extends WheelItem>({
 
   const toggleDropoutProof = useCallback(() => {
     setIsDropoutProofOpen((prev) => !prev);
-    document.cookie = 'seenDropoutProof=true; expires=Fri, 31 Dec 9999 23:59:59 GMT';
+    document.cookie = 'seenDropoutProof2=true; expires=Fri, 31 Dec 9999 23:59:59 GMT';
   }, []);
 
   const getRandomEmote = useCallback((emotes: Emote[]): string => {
@@ -339,13 +344,14 @@ const RandomWheel = <TWheelItem extends WheelItem>({
                   {isSpinning ? t('wheel.spinning') : t('wheel.spin')}
                 </LoadingButton>
               )}
+              {/*//форма ввода секунд*/}
               <TextField
                 className="wheel-controls-input"
                 variant="outlined"
                 margin="dense"
                 label={t('wheel.duration')}
                 onChange={handleSpinTimeChange}
-                value={spinTime || ''}
+                value={spinTime}
               />
               <Typography className="wheel-controls-tip">с.</Typography>
             </div>

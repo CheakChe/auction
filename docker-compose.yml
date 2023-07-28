@@ -1,0 +1,23 @@
+version: '3.9'
+services:
+  app:
+    build:
+      context: ./docker/app
+      dockerfile: Dockerfile
+    image: auction/app
+    tty: true
+    container_name: auction_app
+    working_dir: /var/www
+    volumes:
+      - ./:/var/www
+      - ./docker/app/supervisord.conf:/etc/supervisord.conf
+      - ./docker/app/supervisord:/var/lib/supervisord
+      - ./logs:/logs
+    networks:
+      - auction
+    ports:
+      - "${APP_PORT}:${PORT}"
+
+networks:
+  auction:
+    name: auction

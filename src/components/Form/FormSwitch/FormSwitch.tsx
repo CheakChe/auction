@@ -10,6 +10,14 @@ interface FormSwitchProps {
   hint?: string;
 }
 
+/**
+ * свитч инпуты в настройках
+ * @param label
+ * @param control
+ * @param name
+ * @param hint
+ * @constructor
+ */
 const FormSwitch: FC<FormSwitchProps> = ({ label, control, name, hint }) => {
   const renderSwitch = useCallback(({ onBlur, onChange, value, ref }: ControllerRenderProps) => {
     const handleChange = (event: ChangeEvent<HTMLInputElement>, checked: boolean): void => onChange(checked);

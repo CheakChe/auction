@@ -53,7 +53,7 @@ export const { setUsername, setHasDAAuth, setUserId, setHasTwitchAuth, setCanBeR
 
 export const updateUsername =
   (username: string) =>
-  (dispatch: ThunkDispatch<RootState, {}, Action>): void => {
+  (dispatch: ThunkDispatch<RootState, {}, Action<any>>): void => {
     dispatch(setUsername(username));
     dispatch(initChatClient(username));
   };

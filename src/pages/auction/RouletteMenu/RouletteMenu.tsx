@@ -1,33 +1,44 @@
 import React, { FC, useState } from 'react';
 
 import './RouletteMenu.scss';
+import { useSelector } from 'react-redux';
 import PresetSelect, { RoulettePreset } from './PresetSelect/PresetSelect';
 import Roulette from './Roulette/Roulette';
 import { Purchase } from '../../../reducers/Purchases/Purchases';
+import { RootState } from '../../../reducers';
 
 const roulettePresets: RoulettePreset[] = [
   {
-    multiplier: 2,
-    amount: 18,
+    multiplier: 0.25,
+    amount: 20,
+    size: 4,
     color: '#4682B4',
   },
   {
-    multiplier: 4,
-    amount: 9,
-    color: '#bcc95b',
+    multiplier: 0.5,
+    amount: 18,
+    color: '#75adad',
+    size: 3,
   },
   {
-    multiplier: 6,
-    amount: 6,
+    multiplier: 1.5,
+    amount: 7,
+    size: 1,
+    color: '#99be60',
+  },
+  {
+    multiplier: 2,
+    amount: 3,
+    size: 1,
+    color: '#ecb365',
+  },
+  {
+    multiplier: 5,
+    amount: 2,
     color: '#FF7F50',
   },
   {
-    multiplier: 18,
-    amount: 2,
-    color: '#75adad',
-  },
-  {
-    multiplier: 36,
+    multiplier: 10,
     amount: 1,
     color: '#5b5b5b',
   },
@@ -44,14 +55,16 @@ interface RouletteMenuProps {
 
 const RouletteMenu: FC<RouletteMenuProps> = ({ onRoll, bid }) => {
   const [selectedPreset, setSelectedPreset] = useState<RoulettePreset>();
+  const { settings } = useSelector((root: RootState) => root.aucSettings);
   const handleSpin = (multi: number): void => {
     const winner = getPreset(multi);
+    onRoll(winner!.multiplier * settings.luckyWheelMulti);
 
-    if (winner?.safe || winner?.multiplier === selectedPreset?.multiplier) {
-      onRoll(winner!.multiplier);
-    } else {
-      onRoll(0);
-    }
+    // if (winner?.safe || winner?.multiplier === selectedPreset?.multiplier) {
+    //   onRoll(winner!.multiplier);
+    // } else {
+    //   onRoll(0);
+    // }
   };
 
   return (

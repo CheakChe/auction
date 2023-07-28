@@ -13,7 +13,7 @@ interface SlotsListProps {
 const SlotsList: FC<SlotsListProps> = ({ slots }) => {
   const { compact } = useSelector((root: RootState) => root.aucSettings.view);
   return (
-    <Grid container className="slots-column-list" spacing={1}>
+    <Grid style={{ position: 'relative' }} container className="slots-column-list" spacing={1}>
       {compact ? (
         <div className="compact-view">
           {slots.map((slot, index) => (

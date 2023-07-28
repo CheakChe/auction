@@ -16,6 +16,19 @@ interface FormInputProps extends OutlinedInputProps {
   errors?: UseFormMethods['errors'];
 }
 
+/**
+ * инпут внутри настроек
+ * @param label
+ * @param control
+ * @param type
+ * @param name
+ * @param defaultValue
+ * @param hint
+ * @param errors
+ * @param rules
+ * @param restProps
+ * @constructor
+ */
 const FormInput: FC<FormInputProps> = ({
   label,
   control,

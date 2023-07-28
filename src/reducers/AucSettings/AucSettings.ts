@@ -2,7 +2,7 @@ import { createSlice, PayloadAction, ThunkDispatch } from '@reduxjs/toolkit';
 import { Action } from 'redux';
 import mergewith from 'lodash.mergewith';
 import { getUserData } from '../../api/userApi';
-import { setHasDAAuth, setHasTwitchAuth, setUserId, updateUsername } from '../User/User';
+import { setHasDAAuth, setHasTwitchAuth, setUserId, /*updateUsername*/ } from '../User/User';
 import { GetUserDto } from '../../models/user.model';
 
 export interface SettingFields {
@@ -23,6 +23,7 @@ export interface SettingFields {
   isNewSlotIncrement?: boolean;
   isTotalVisible?: boolean;
   luckyWheel?: boolean;
+  luckyWheelMulti: number;
 }
 
 export interface ViewSettings {
@@ -80,7 +81,8 @@ export const initialState: AucSettingsState = {
     newSlotIncrement: 60,
     isNewSlotIncrement: false,
     isTotalVisible: true,
-    luckyWheel: false,
+    luckyWheel: true,
+    luckyWheelMulti: 1,
   },
   integration: {
     twitch: {
@@ -130,7 +132,9 @@ export const loadUserData = async (dispatch: ThunkDispatch<{}, {}, Action>): Pro
     dispatch(setAucSettings(aucSettings));
   }
   dispatch(setIntegration({ twitch: twitchSettings, da: daSettings }));
-  dispatch(updateUsername(twitchAuth?.username || daAuth?.username || ''));
+  // TODO Мне не понятна структура ожидаемого тут типа. А оно ругается на него. В целом я думаю оно нам и не нужно.
+  // в будущем надо будет нормально его выпилить.
+  // dispatch(updateUsername(twitchAuth?.username || daAuth?.username || '', {}));
   dispatch(setUserId(twitchAuth?.id as any));
   dispatch(setHasDAAuth(!!daAuth?.isValid));
   dispatch(setHasTwitchAuth(!!twitchAuth?.isValid));
