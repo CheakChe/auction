@@ -7,7 +7,6 @@ interface BracketGameProps {
   game: Game;
   isCurrent: boolean;
 
-  homeOnTop?: boolean;
   hoveredTeamId?: Key | null;
 
   x: number;
@@ -27,12 +26,9 @@ interface BracketGameProps {
     gameTimeStyle: React.CSSProperties;
     teamSeparatorStyle: React.CSSProperties;
   };
-  topText?: (game: Game) => string;
-  bottomText?: (game: Game) => string;
 }
 
 const defaultProps: Partial<BracketGameProps> = {
-  homeOnTop: true,
   hoveredTeamId: null,
 
   styles: {
@@ -46,10 +42,7 @@ const defaultProps: Partial<BracketGameProps> = {
     gameNameStyle: { fill: '#999', fontSize: 10 },
     gameTimeStyle: { fill: '#999', fontSize: 10 },
     teamSeparatorStyle: { stroke: '#444549', strokeWidth: 1 },
-  },
-
-  topText: ({ scheduled }: Game) => (scheduled ? new Date(scheduled).toLocaleDateString() : ''),
-  bottomText: ({ name, bracketLabel }: Game) => [name, bracketLabel].filter((value) => value).join(' - '),
+  }
 };
 
 class BracketGame extends React.PureComponent<BracketGameProps> {
