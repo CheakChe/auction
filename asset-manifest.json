@@ -1,0 +1,29 @@
+{
+  "files": {
+    "main.css": "/auction/static/css/main.a9bb995d.chunk.css",
+    "main.js": "/auction/static/js/main.dd7bff8d.chunk.js",
+    "main.js.map": "/auction/static/js/main.dd7bff8d.chunk.js.map",
+    "runtime-main.js": "/auction/static/js/runtime-main.6630c2c9.js",
+    "runtime-main.js.map": "/auction/static/js/runtime-main.6630c2c9.js.map",
+    "static/js/2.92271e4c.chunk.js": "/auction/static/js/2.92271e4c.chunk.js",
+    "static/js/2.92271e4c.chunk.js.map": "/auction/static/js/2.92271e4c.chunk.js.map",
+    "index.html": "/auction/index.html",
+    "precache-manifest.b14bb168aa814c6b5a99a5b9b814ca88.js": "/auction/precache-manifest.b14bb168aa814c6b5a99a5b9b814ca88.js",
+    "service-worker.js": "/auction/service-worker.js",
+    "static/css/main.a9bb995d.chunk.css.map": "/auction/static/css/main.a9bb995d.chunk.css.map",
+    "static/js/2.92271e4c.chunk.js.LICENSE.txt": "/auction/static/js/2.92271e4c.chunk.js.LICENSE.txt",
+    "static/js/main.dd7bff8d.chunk.js.LICENSE.txt": "/auction/static/js/main.dd7bff8d.chunk.js.LICENSE.txt",
+    "static/media/index.scss": "/auction/static/media/HelveticaNeueCyr-Thin.76bcf092.woff",
+    "static/media/auction.4bbe2c6e.svg": "/auction/static/media/auction.4bbe2c6e.svg",
+    "static/media/dropout_proof.pdf": "/auction/static/media/dropout_proof.3b09595a.pdf",
+    "static/media/eblan.png": "/auction/static/media/eblan.05b31592.png",
+    "static/media/pradenW.png": "/auction/static/media/pradenW.4d69ad13.png",
+    "static/media/wheel.8d1d2385.svg": "/auction/static/media/wheel.8d1d2385.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.6630c2c9.js",
+    "static/js/2.92271e4c.chunk.js",
+    "static/css/main.a9bb995d.chunk.css",
+    "static/js/main.dd7bff8d.chunk.js"
+  ]
+}
